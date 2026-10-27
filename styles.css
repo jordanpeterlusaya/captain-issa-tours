@@ -224,6 +224,15 @@ p {
   background: #926f35;
 }
 
+.btn--whatsapp {
+  background: #1faf4b;
+  color: var(--white);
+}
+
+.btn--whatsapp:hover {
+  background: #18963f;
+}
+
 .btn--ghost {
   background: transparent;
   color: var(--white);
@@ -243,7 +252,7 @@ p {
   width: 100%;
 }
 
-/* Hero — full-bleed composition */
+/* Hero — full-bleed video */
 .hero {
   position: relative;
   min-height: 100svh;
@@ -251,34 +260,39 @@ p {
   align-items: end;
   color: var(--white);
   overflow: hidden;
+  background: #071620;
+  isolation: isolate;
 }
 
-.hero__media {
+.hero__poster,
+.hero__video {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 100%;
+  height: 115%;
   object-fit: cover;
-  transform: scale(1.04);
-  animation: heroDrift 22s var(--ease) infinite alternate;
 }
 
-@keyframes heroDrift {
-  from { transform: scale(1.04) translate3d(0, 0, 0); }
-  to { transform: scale(1.1) translate3d(-1.5%, -1%, 0); }
+.hero__poster {
+  z-index: 0;
+}
+
+.hero__video {
+  z-index: 1;
 }
 
 .hero__veil {
   position: absolute;
   inset: 0;
+  z-index: 2;
   background:
-    linear-gradient(180deg, rgba(6, 54, 71, 0.25) 0%, rgba(6, 54, 71, 0.15) 35%, rgba(6, 54, 71, 0.72) 100%),
-    linear-gradient(90deg, rgba(6, 54, 71, 0.45) 0%, transparent 55%);
+    linear-gradient(180deg, rgba(6, 54, 71, 0.35) 0%, rgba(6, 54, 71, 0.12) 40%, rgba(6, 54, 71, 0.78) 100%),
+    linear-gradient(90deg, rgba(6, 54, 71, 0.5) 0%, transparent 55%);
 }
 
 .hero__content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: 42rem;
   padding: calc(var(--header-h) + 2rem) clamp(1.25rem, 5vw, 3.5rem) clamp(3.5rem, 8vh, 5rem);
   align-self: end;
@@ -319,7 +333,7 @@ p {
   position: absolute;
   bottom: 1.5rem;
   right: clamp(1.25rem, 5vw, 3.5rem);
-  z-index: 2;
+  z-index: 3;
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -605,6 +619,60 @@ p {
   color: var(--muted);
 }
 
+.book__intro .btn {
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.form-lead {
+  margin: 0 0 0.25rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.about__phone {
+  margin-top: 1rem;
+}
+
+.about__phone a {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ocean-deep);
+  border-bottom: 2px solid var(--teal);
+}
+
+.about__portrait img {
+  width: 100%;
+  max-width: none;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.wa-float {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  z-index: 50;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #1faa55;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(6, 54, 71, 0.28);
+  transition: transform 0.25s var(--ease), background 0.2s;
+}
+
+.wa-float:hover {
+  transform: translateY(-2px) scale(1.04);
+  background: #189647;
+}
+
 .booking-form {
   display: grid;
   gap: 1.1rem;
@@ -813,12 +881,15 @@ p {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero__media,
   .hero__scroll,
   .reveal {
     animation: none !important;
     transition: none !important;
     opacity: 1;
     transform: none;
+  }
+
+  .hero__video {
+    display: none;
   }
 }

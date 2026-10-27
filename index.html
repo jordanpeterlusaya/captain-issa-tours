@@ -27,13 +27,27 @@
       <a href="#tours">Tours</a>
       <a href="#experience">Experience</a>
       <a href="#about">About</a>
-      <a href="#book" class="nav-cta">Book Safari</a>
+      <a href="https://wa.me/255774726129?text=Habari%20Captain%20Issa%20—%20I'd%20like%20to%20book%20a%20safari" class="nav-cta" target="_blank" rel="noopener noreferrer">Book WhatsApp</a>
     </nav>
   </header>
 
   <main>
     <section class="hero" aria-label="Welcome">
-      <img class="hero__media" src="assets/hero.jpg" alt="Turquoise Zanzibar waters with boats along a white sand shoreline" width="1920" height="1078" fetchpriority="high" />
+      <img class="hero__poster" src="assets/hero-poster.jpg" alt="" />
+      <video
+        class="hero__video"
+        data-hero-video
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="assets/hero-poster.jpg"
+        aria-label="Zanzibar coast"
+      >
+        <source src="assets/videos/hero-mobile.mp4" type="video/mp4" media="(max-width: 800px)" />
+        <source src="assets/videos/hero.mp4" type="video/mp4" />
+      </video>
       <div class="hero__veil"></div>
       <div class="hero__content">
         <p class="hero__karibu reveal">Karibu Zanzibar</p>
@@ -42,7 +56,12 @@
         </h1>
         <p class="hero__lede reveal reveal-delay-2">Private boat safaris to Prison Island and Nakupenda Beach — tortoises, snorkeling, and a sandbank at the edge of the world.</p>
         <div class="hero__actions reveal reveal-delay-3">
-          <a class="btn btn--primary" href="#book">Book your safari</a>
+          <a
+            class="btn btn--whatsapp"
+            href="https://wa.me/255774726129?text=Habari%20Captain%20Issa%20—%20I'd%20like%20to%20book%20a%20safari"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Book with WhatsApp</a>
           <a class="btn btn--ghost" href="#tours">View tours</a>
         </div>
       </div>
@@ -59,7 +78,7 @@
 
       <article class="tour tour--prison reveal">
         <div class="tour__visual">
-          <img src="assets/prison-island.jpg" alt="Prison Island jetty and turquoise waters off Zanzibar" loading="lazy" width="1200" height="675" />
+          <img src="assets/prison-island.jpg" alt="Prison Island, Zanzibar" loading="lazy" width="1200" height="800" />
         </div>
         <div class="tour__body">
           <p class="tour__label">Half day · ~4 hours</p>
@@ -73,14 +92,20 @@
           </ul>
           <div class="tour__meta">
             <span class="price">From <strong>$45</strong> / person</span>
-            <a class="btn btn--primary btn--sm" href="#book" data-tour="prison-island">Book Prison Island</a>
+            <a
+              class="btn btn--whatsapp btn--sm"
+              href="https://wa.me/255774726129?text=Habari%20Captain%20Issa%20—%20I'd%20like%20to%20book%20Prison%20Island"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-tour="prison-island"
+            >Book WhatsApp</a>
           </div>
         </div>
       </article>
 
       <article class="tour tour--nakupenda reveal">
         <div class="tour__visual">
-          <img src="assets/nakupenda-beach.jpg" alt="Crystal-clear Nakupenda sandbank water under a bright Zanzibar sky" loading="lazy" width="1600" height="900" />
+          <img src="assets/nakupenda-beach.jpg" alt="Snorkeling at Nakupenda sandbank" loading="lazy" width="1024" height="768" />
         </div>
         <div class="tour__body">
           <p class="tour__label">Half day · ~5 hours</p>
@@ -94,7 +119,13 @@
           </ul>
           <div class="tour__meta">
             <span class="price">From <strong>$55</strong> / person</span>
-            <a class="btn btn--primary btn--sm" href="#book" data-tour="nakupenda-beach">Book Nakupenda</a>
+            <a
+              class="btn btn--whatsapp btn--sm"
+              href="https://wa.me/255774726129?text=Habari%20Captain%20Issa%20—%20I'd%20like%20to%20book%20Nakupenda%20Beach"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-tour="nakupenda-beach"
+            >Book WhatsApp</a>
           </div>
         </div>
       </article>
@@ -105,17 +136,23 @@
           <h3>Prison Island + Nakupenda</h3>
           <p>See the tortoises in the morning, then drift to Nakupenda for lunch and swimming — a full island day without rushing.</p>
           <p class="price">From <strong>$75</strong> / person · ~7–8 hours</p>
-          <a class="btn btn--primary" href="#book" data-tour="combo">Book combined safari</a>
+          <a
+            class="btn btn--whatsapp"
+            href="https://wa.me/255774726129?text=Habari%20Captain%20Issa%20—%20I'd%20like%20to%20book%20Prison%20Island%20%2B%20Nakupenda"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-tour="combo"
+          >Book with WhatsApp</a>
         </div>
         <div class="combo__visual" aria-hidden="true">
-          <img src="assets/dhow-boat.jpg" alt="" loading="lazy" />
+          <img src="assets/nakupenda-island.webp" alt="" loading="lazy" />
         </div>
       </article>
     </section>
 
     <section class="experience" id="experience">
       <div class="experience__bg" aria-hidden="true">
-        <img src="assets/dhow-boat.jpg" alt="" />
+        <img src="assets/dhow.webp" alt="" />
       </div>
       <div class="experience__panel reveal">
         <p class="eyebrow">The experience</p>
@@ -135,6 +172,13 @@
             <dd>Morning tide</dd>
           </div>
         </dl>
+        <a
+          class="btn btn--whatsapp"
+          style="margin-top: 1.5rem; align-self: flex-start;"
+          href="https://wa.me/255774726129?text=Habari%20Captain%20Issa%20—%20I'd%20like%20to%20book%20a%20safari"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Book with WhatsApp</a>
       </div>
     </section>
 
@@ -145,9 +189,10 @@
           <h2>Captain Issa</h2>
           <p>Born and raised on the Zanzibar coast, Captain Issa has guided guests to Prison Island and Nakupenda for years — reading tides, reefs, and weather so your day stays smooth and memorable.</p>
           <p>Whether you want a quiet couple’s escape or a family safari, he shapes the route around you.</p>
+          <p class="about__phone"><a href="tel:+255774726129">0774 726 129</a></p>
         </div>
         <figure class="about__portrait reveal">
-          <img src="assets/logo.jpg" alt="Captain Issa Tours emblem" />
+          <img src="assets/sandbank.webp" alt="Clear sandbank waters near Prison Island" />
           <figcaption>Trusted local boat tours · Stone Town, Zanzibar</figcaption>
         </figure>
       </div>
@@ -156,11 +201,18 @@
     <section class="book" id="book">
       <div class="book__intro reveal">
         <p class="eyebrow">Reservations</p>
-        <h2>Book your safari</h2>
-        <p>Tell us your dates and preferred tour. We’ll confirm availability on WhatsApp within a few hours.</p>
+        <h2>Book on WhatsApp</h2>
+        <p>Send your dates and preferred tour to <strong>0774 726 129</strong>. We’ll confirm availability quickly.</p>
+        <a
+          class="btn btn--whatsapp"
+          href="https://wa.me/255774726129?text=Habari%20Captain%20Issa%20—%20I'd%20like%20to%20book%20a%20safari"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Chat on WhatsApp · 0774 726 129</a>
       </div>
 
       <form class="booking-form reveal" id="booking-form" novalidate>
+        <p class="form-lead">Or fill this form — it opens WhatsApp with your details ready.</p>
         <div class="field">
           <label for="tour">Safari</label>
           <select id="tour" name="tour" required>
@@ -188,7 +240,7 @@
             <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required />
           </div>
           <div class="field">
-            <label for="phone">WhatsApp / phone</label>
+            <label for="phone">Your WhatsApp / phone</label>
             <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+255 …" required />
           </div>
         </div>
@@ -203,8 +255,8 @@
           <textarea id="notes" name="notes" rows="3" placeholder="Hotel name, special requests…"></textarea>
         </div>
 
-        <button type="submit" class="btn btn--primary btn--block">Send booking request</button>
-        <p class="form-hint">Opens WhatsApp with your details ready to send to Captain Issa.</p>
+        <button type="submit" class="btn btn--whatsapp btn--block">Send via WhatsApp</button>
+        <p class="form-hint">Opens WhatsApp to 0774 726 129 with your booking details.</p>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
       </form>
     </section>
@@ -219,12 +271,22 @@
       </div>
     </div>
     <div class="footer__contact">
-      <a href="https://wa.me/255700000000" id="footer-whatsapp">WhatsApp</a>
-      <a href="mailto:bookings@captainissatours.com">Email</a>
+      <a href="https://wa.me/255774726129" id="footer-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp 0774 726 129</a>
+      <a href="tel:+255774726129">Call</a>
       <a href="#book">Book</a>
     </div>
     <p class="footer__copy">© <span id="year"></span> Captain Issa Tours. All rights reserved.</p>
   </footer>
+
+  <a
+    class="wa-float"
+    href="https://wa.me/255774726129?text=Habari%20Captain%20Issa%20—%20I'd%20like%20to%20book%20a%20safari"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Book with WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M16.01 3C9.39 3 4 8.38 4 15c0 2.11.55 4.09 1.52 5.82L4 29l8.37-1.48A11.93 11.93 0 0 0 16.01 27C22.63 27 28 21.62 28 15S22.63 3 16.01 3zm6.9 16.82c-.29.82-1.69 1.5-2.36 1.59-.6.08-1.37.12-2.21-.14-.51-.15-1.16-.34-2-.66-3.52-1.35-5.81-4.49-5.99-4.7-.18-.21-1.45-1.93-1.45-3.68s.92-2.61 1.24-2.97c.33-.36.71-.45.95-.45h.68c.22 0 .51-.08.8.61.29.71.99 2.44 1.08 2.62.09.18.15.39.03.62-.12.24-.18.39-.36.6-.18.21-.38.47-.54.63-.18.18-.36.37-.15.72.21.36.93 1.53 2 2.48 1.37 1.21 2.53 1.59 2.89 1.77.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.8-.18.33.12 2.07.98 2.42 1.15.36.18.6.27.69.42.09.15.09.87-.2 1.69z"/></svg>
+  </a>
 
   <script src="script.js"></script>
 </body>

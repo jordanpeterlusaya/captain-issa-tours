@@ -1,5 +1,5 @@
 (() => {
-  const WHATSAPP_NUMBER = "255700000000"; // Replace with Captain Issa's real WhatsApp
+  const WHATSAPP_NUMBER = "255774726129"; // 0774 726 129
 
   const header = document.querySelector(".site-header");
   const nav = document.getElementById("site-nav");
@@ -10,9 +10,24 @@
   const dateInput = document.getElementById("date");
   const yearEl = document.getElementById("year");
   const footerWa = document.getElementById("footer-whatsapp");
+  const heroVideo = document.querySelector("[data-hero-video]");
 
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
   if (footerWa) footerWa.href = `https://wa.me/${WHATSAPP_NUMBER}`;
+
+  // Keep hero video playing when possible
+  if (heroVideo) {
+    const tryPlay = () => {
+      const playPromise = heroVideo.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+    };
+    tryPlay();
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) tryPlay();
+    });
+  }
 
   // Min date = tomorrow
   if (dateInput) {
@@ -47,7 +62,7 @@
     });
   }
 
-  // Preselect tour from CTA buttons
+  // Preselect tour from CTA buttons that still point at #book
   document.querySelectorAll("[data-tour]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const value = btn.getAttribute("data-tour");
