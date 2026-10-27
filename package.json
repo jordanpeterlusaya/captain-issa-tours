@@ -1,0 +1,9 @@
+{
+  "name": "captain-issa-tours",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Captain Issa Tours website with dynamic pricing",
+  "scripts": {
+    "test": "node js/pricing.test.js"
+  }
+}

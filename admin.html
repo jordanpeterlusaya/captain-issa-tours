@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing admin · Captain Issa Tours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .admin {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: calc(5rem + env(safe-area-inset-top)) var(--pad-x, 1.25rem) 4rem;
+    }
+    .admin h1 { margin-bottom: 0.35rem; }
+    .admin .lede { color: var(--muted); margin-bottom: 1.75rem; }
+    .admin-form { display: grid; gap: 1rem; }
+    .admin-form fieldset {
+      border: 1px solid var(--line, rgba(10,28,36,.1));
+      padding: 1rem 1.1rem 1.2rem;
+      margin: 0;
+      background: rgba(255,255,255,.7);
+    }
+    .admin-form legend {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      padding: 0 .35rem;
+    }
+    .admin-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .admin-status { min-height: 1.4em; color: var(--ocean, #0d4f5c); font-size: .9rem; }
+    .admin a.back { display: inline-block; margin-bottom: 1.25rem; color: var(--champagne-deep, #9e7d4a); font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main class="admin">
+    <a class="back" href="index.html">← Back to website</a>
+    <h1>Pricing settings</h1>
+    <p class="lede">Configure rates used by the booking calculator. Leave extra-hour rate or USD→TSh blank until you set them — the site will not invent prices.</p>
+
+    <form class="admin-form" id="admin-form">
+      <fieldset>
+        <legend>Boat</legend>
+        <div class="field">
+          <label for="roundTripTsh">Round-trip boat (TSh)</label>
+          <input id="roundTripTsh" name="roundTripTsh" type="number" min="0" step="1000" required />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="maxGuests">Max guests</label>
+            <input id="maxGuests" name="maxGuests" type="number" min="1" max="20" required />
+          </div>
+          <div class="field">
+            <label for="includedHours">Included hours</label>
+            <input id="includedHours" name="includedHours" type="number" min="1" max="12" required />
+          </div>
+        </div>
+        <div class="field">
+          <label for="extraHourRateTsh">Extra hour rate (TSh) <span class="optional">— leave empty if not set</span></label>
+          <input id="extraHourRateTsh" name="extraHourRateTsh" type="number" min="0" step="1000" placeholder="Not configured" />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Entrance tickets</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="prisonForeignUsd">Prison Island foreign (USD)</label>
+            <input id="prisonForeignUsd" type="number" min="0" step="0.01" required />
+          </div>
+          <div class="field">
+            <label for="prisonLocalTsh">Prison Island Tanzanian (TSh)</label>
+            <input id="prisonLocalTsh" type="number" min="0" step="500" required />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="marineForeignUsd">Marine Conservation foreign (USD)</label>
+            <input id="marineForeignUsd" type="number" min="0" step="0.01" required />
+          </div>
+          <div class="field">
+            <label for="marineLocalTsh">Marine / beach Tanzanian (TSh)</label>
+            <input id="marineLocalTsh" type="number" min="0" step="500" required />
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Meals</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="seafoodPrice">Seafood package (TSh)</label>
+            <input id="seafoodPrice" type="number" min="0" step="1000" required />
+          </div>
+          <div class="field">
+            <label for="seafoodServes">Seafood serves</label>
+            <input id="seafoodServes" type="number" min="1" max="20" required />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="chickenPrice">Chicken &amp; rice package (TSh)</label>
+            <input id="chickenPrice" type="number" min="0" step="1000" required />
+          </div>
+          <div class="field">
+            <label for="chickenServes">Chicken &amp; rice serves</label>
+            <input id="chickenServes" type="number" min="1" max="20" required />
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Exchange</legend>
+        <div class="field">
+          <label for="usdToTsh">USD → TSh rate <span class="optional">— leave empty to skip conversion</span></label>
+          <input id="usdToTsh" type="number" min="0" step="1" placeholder="Not configured" />
+        </div>
+      </fieldset>
+
+      <div class="admin-actions">
+        <button type="submit" class="btn btn--primary">Save settings</button>
+        <button type="button" class="btn btn--ghost" id="reset-defaults" style="color:#0a1c24;border-color:rgba(10,28,36,.25)">Reset to defaults</button>
+      </div>
+      <p class="admin-status" id="admin-status" role="status"></p>
+    </form>
+  </main>
+
+  <script src="js/pricing-config.js"></script>
+  <script>
+    (() => {
+      const C = window.CaptainIssaPricingConfig;
+      const form = document.getElementById("admin-form");
+      const status = document.getElementById("admin-status");
+
+      function fill() {
+        const c = C.getConfig();
+        form.roundTripTsh.value = c.boat.roundTripTsh;
+        form.maxGuests.value = c.boat.maxGuests;
+        form.includedHours.value = c.boat.includedHours;
+        form.extraHourRateTsh.value = c.boat.extraHourRateTsh ?? "";
+        form.prisonForeignUsd.value = c.tickets.prisonIsland.foreignUsd;
+        form.prisonLocalTsh.value = c.tickets.prisonIsland.localTsh;
+        form.marineForeignUsd.value = c.tickets.marineConservation.foreignUsd;
+        form.marineLocalTsh.value = c.tickets.marineConservation.localTsh;
+        const seafood = c.meals.options.find((m) => m.id === "seafood");
+        const chicken = c.meals.options.find((m) => m.id === "chicken-rice");
+        form.seafoodPrice.value = seafood.priceTsh;
+        form.seafoodServes.value = seafood.serves;
+        form.chickenPrice.value = chicken.priceTsh;
+        form.chickenServes.value = chicken.serves;
+        form.usdToTsh.value = c.exchange.usdToTsh ?? "";
+      }
+
+      function numOrNull(value) {
+        if (value === "" || value == null) return null;
+        const n = Number(value);
+        return Number.isFinite(n) ? n : null;
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        C.saveOverrides({
+          boat: {
+            roundTripTsh: Number(form.roundTripTsh.value),
+            maxGuests: Number(form.maxGuests.value),
+            includedHours: Number(form.includedHours.value),
+            extraHourRateTsh: numOrNull(form.extraHourRateTsh.value),
+          },
+          tickets: {
+            prisonIsland: {
+              foreignUsd: Number(form.prisonForeignUsd.value),
+              localTsh: Number(form.prisonLocalTsh.value),
+            },
+            marineConservation: {
+              foreignUsd: Number(form.marineForeignUsd.value),
+              localTsh: Number(form.marineLocalTsh.value),
+            },
+          },
+          meals: {
+            options: [
+              {
+                id: "seafood",
+                label: "Seafood package",
+                description: "Fish, prawns, squid, chips and drinks",
+                priceTsh: Number(form.seafoodPrice.value),
+                serves: Number(form.seafoodServes.value),
+                enabled: true,
+              },
+              {
+                id: "chicken-rice",
+                label: "Chicken and rice package",
+                description: "Chicken and rice for the table",
+                priceTsh: Number(form.chickenPrice.value),
+                serves: Number(form.chickenServes.value),
+                enabled: true,
+              },
+            ],
+          },
+          exchange: {
+            usdToTsh: numOrNull(form.usdToTsh.value),
+          },
+        });
+        status.textContent = "Saved. Booking calculator will use these rates on this browser.";
+      });
+
+      document.getElementById("reset-defaults").addEventListener("click", () => {
+        C.clearOverrides();
+        fill();
+        status.textContent = "Reset to default config.";
+      });
+
+      fill();
+    })();
+  </script>
+</body>
+</html>
