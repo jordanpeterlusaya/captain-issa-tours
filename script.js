@@ -15,18 +15,61 @@
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
   if (footerWa) footerWa.href = `https://wa.me/${WHATSAPP_NUMBER}`;
 
-  // Keep hero video playing when possible
+  // Hero background video (same approach as zantaxiride)
   if (heroVideo) {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const pickSrc = () =>
+      window.matchMedia("(max-width: 800px)").matches
+        ? "assets/videos/hero-mobile.mp4"
+        : "assets/videos/hero.mp4";
+
+    const heroSection = heroVideo.closest(".hero");
+
     const tryPlay = () => {
       const playPromise = heroVideo.play();
-      if (playPromise && typeof playPromise.catch === "function") {
-        playPromise.catch(() => {});
+      if (playPromise && typeof playPromise.then === "function") {
+        playPromise
+          .then(() => {
+            if (heroSection) heroSection.classList.add("is-playing");
+          })
+          .catch(() => {});
       }
     };
-    tryPlay();
-    document.addEventListener("visibilitychange", () => {
-      if (!document.hidden) tryPlay();
-    });
+
+    if (reduceMotion) {
+      heroVideo.removeAttribute("autoplay");
+      heroVideo.pause();
+    } else {
+      heroVideo.muted = true;
+      heroVideo.defaultMuted = true;
+      heroVideo.playsInline = true;
+      heroVideo.setAttribute("muted", "");
+      heroVideo.setAttribute("playsinline", "");
+      heroVideo.setAttribute("webkit-playsinline", "");
+      heroVideo.src = pickSrc();
+      heroVideo.load();
+      tryPlay();
+      heroVideo.addEventListener("playing", () => {
+        if (heroSection) heroSection.classList.add("is-playing");
+      });
+      heroVideo.addEventListener("loadeddata", tryPlay, { once: true });
+      heroVideo.addEventListener("canplay", tryPlay, { once: true });
+      window.addEventListener("resize", () => {
+        const next = pickSrc();
+        if (!String(heroVideo.currentSrc || heroVideo.src).includes(next)) {
+          heroVideo.src = next;
+          heroVideo.load();
+          tryPlay();
+        }
+      });
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) tryPlay();
+      });
+      // Autoplay fallback after first user gesture
+      ["touchstart", "click"].forEach((evt) => {
+        document.addEventListener(evt, tryPlay, { once: true, passive: true });
+      });
+    }
   }
 
   // Min date = tomorrow
