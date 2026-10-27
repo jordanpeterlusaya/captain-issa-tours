@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Captain Issa Tours — book private boat safaris to Prison Island and Nakupenda Beach in Zanzibar." />
+  <title>Captain Issa Tours | Prison Island & Nakupenda Beach</title>
+  <link rel="icon" href="assets/logo.jpg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Captain Issa Tours home">
+      <img src="assets/logo.jpg" alt="" class="brand__mark" width="48" height="48" />
+      <span class="brand__text">
+        <span class="brand__name">Captain Issa</span>
+        <span class="brand__tag">Tours · Zanzibar</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="#tours">Tours</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#book" class="nav-cta">Book Safari</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Welcome">
+      <img class="hero__media" src="assets/hero.jpg" alt="Turquoise Zanzibar ocean with a traditional dhow sailing toward a white sandbank" />
+      <div class="hero__veil"></div>
+      <div class="hero__content">
+        <p class="hero__karibu reveal">Karibu Zanzibar</p>
+        <h1 class="reveal reveal-delay-1">
+          <span class="hero__brand">Captain Issa Tours</span>
+        </h1>
+        <p class="hero__lede reveal reveal-delay-2">Private boat safaris to Prison Island and Nakupenda Beach — tortoises, snorkeling, and a sandbank at the edge of the world.</p>
+        <div class="hero__actions reveal reveal-delay-3">
+          <a class="btn btn--primary" href="#book">Book your safari</a>
+          <a class="btn btn--ghost" href="#tours">View tours</a>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#tours" aria-label="Scroll to tours">
+        <span>Explore</span>
+      </a>
+    </section>
+
+    <section class="tours" id="tours">
+      <div class="section-head">
+        <p class="eyebrow">Our safaris</p>
+        <h2>Two islands. One unforgettable day on the water.</h2>
+      </div>
+
+      <article class="tour tour--prison reveal">
+        <div class="tour__visual">
+          <img src="assets/prison-island.jpg" alt="Giant tortoises and historic ruins on Prison Island, Zanzibar" loading="lazy" />
+        </div>
+        <div class="tour__body">
+          <p class="tour__label">Half day · ~4 hours</p>
+          <h3>Prison Island</h3>
+          <p>Sail to Changuu Island for the old prison ruins, coral paths, and Aldabra giant tortoises that have watched the Indian Ocean for generations. Snorkel the reef before returning to Stone Town.</p>
+          <ul class="tour__list">
+            <li>Boat transfer with Captain Issa</li>
+            <li>Tortoise sanctuary visit</li>
+            <li>Snorkeling stop (gear available)</li>
+            <li>Soft drinks on board</li>
+          </ul>
+          <div class="tour__meta">
+            <span class="price">From <strong>$45</strong> / person</span>
+            <a class="btn btn--primary btn--sm" href="#book" data-tour="prison-island">Book Prison Island</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="tour tour--nakupenda reveal">
+        <div class="tour__visual">
+          <img src="assets/nakupenda-beach.jpg" alt="White sandbank of Nakupenda Beach rising from clear turquoise water" loading="lazy" />
+        </div>
+        <div class="tour__body">
+          <p class="tour__label">Half day · ~5 hours</p>
+          <h3>Nakupenda Beach</h3>
+          <p>“Nakupenda” means <em>I love you</em> — and the sandbank earns it. Wade through glass-clear water, swim, snorkel, and feast on a fresh seafood barbecue right on the white sand.</p>
+          <ul class="tour__list">
+            <li>Private dhow or boat to the sandbank</li>
+            <li>Swimming & snorkeling time</li>
+            <li>Fresh seafood BBQ lunch</li>
+            <li>Tropical fruit & drinks</li>
+          </ul>
+          <div class="tour__meta">
+            <span class="price">From <strong>$55</strong> / person</span>
+            <a class="btn btn--primary btn--sm" href="#book" data-tour="nakupenda-beach">Book Nakupenda</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="combo reveal">
+        <div class="combo__copy">
+          <p class="eyebrow">Best value</p>
+          <h3>Prison Island + Nakupenda</h3>
+          <p>See the tortoises in the morning, then drift to Nakupenda for lunch and swimming — a full island day without rushing.</p>
+          <p class="price">From <strong>$75</strong> / person · ~7–8 hours</p>
+          <a class="btn btn--primary" href="#book" data-tour="combo">Book combined safari</a>
+        </div>
+        <div class="combo__visual" aria-hidden="true">
+          <img src="assets/dhow-boat.jpg" alt="" loading="lazy" />
+        </div>
+      </article>
+    </section>
+
+    <section class="experience" id="experience">
+      <div class="experience__bg" aria-hidden="true">
+        <img src="assets/dhow-boat.jpg" alt="" />
+      </div>
+      <div class="experience__panel reveal">
+        <p class="eyebrow">The experience</p>
+        <h2>Out with a captain who knows these waters.</h2>
+        <p>Small groups, safe boats, and a pace that lets you actually feel Zanzibar — not a checklist. Pick-up arranged from Stone Town hotels and the harbour.</p>
+        <dl class="facts">
+          <div>
+            <dt>Departure</dt>
+            <dd>Stone Town harbour</dd>
+          </div>
+          <div>
+            <dt>Group size</dt>
+            <dd>Private or shared</dd>
+          </div>
+          <div>
+            <dt>Best time</dt>
+            <dd>Morning tide</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about__grid">
+        <div class="about__copy reveal">
+          <p class="eyebrow">Meet your captain</p>
+          <h2>Captain Issa</h2>
+          <p>Born and raised on the Zanzibar coast, Captain Issa has guided guests to Prison Island and Nakupenda for years — reading tides, reefs, and weather so your day stays smooth and memorable.</p>
+          <p>Whether you want a quiet couple’s escape or a family safari, he shapes the route around you.</p>
+        </div>
+        <figure class="about__portrait reveal">
+          <img src="assets/logo.jpg" alt="Captain Issa Tours emblem" />
+          <figcaption>Trusted local boat tours · Stone Town, Zanzibar</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="book" id="book">
+      <div class="book__intro reveal">
+        <p class="eyebrow">Reservations</p>
+        <h2>Book your safari</h2>
+        <p>Tell us your dates and preferred tour. We’ll confirm availability on WhatsApp within a few hours.</p>
+      </div>
+
+      <form class="booking-form reveal" id="booking-form" novalidate>
+        <div class="field">
+          <label for="tour">Safari</label>
+          <select id="tour" name="tour" required>
+            <option value="">Select a tour…</option>
+            <option value="prison-island">Prison Island — from $45</option>
+            <option value="nakupenda-beach">Nakupenda Beach — from $55</option>
+            <option value="combo">Prison Island + Nakupenda — from $75</option>
+          </select>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="date">Preferred date</label>
+            <input type="date" id="date" name="date" required />
+          </div>
+          <div class="field">
+            <label for="guests">Guests</label>
+            <input type="number" id="guests" name="guests" min="1" max="20" value="2" required />
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="phone">WhatsApp / phone</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+255 …" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email <span class="optional">(optional)</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@email.com" />
+        </div>
+
+        <div class="field">
+          <label for="notes">Notes <span class="optional">(hotel, pick-up, diet)</span></label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Hotel name, special requests…"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block">Send booking request</button>
+        <p class="form-hint">Opens WhatsApp with your details ready to send to Captain Issa.</p>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer__brand">
+      <img src="assets/logo.jpg" alt="" width="40" height="40" />
+      <div>
+        <strong>Captain Issa Tours</strong>
+        <span>Stone Town · Zanzibar · Tanzania</span>
+      </div>
+    </div>
+    <div class="footer__contact">
+      <a href="https://wa.me/255700000000" id="footer-whatsapp">WhatsApp</a>
+      <a href="mailto:bookings@captainissatours.com">Email</a>
+      <a href="#book">Book</a>
+    </div>
+    <p class="footer__copy">© <span id="year"></span> Captain Issa Tours. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
