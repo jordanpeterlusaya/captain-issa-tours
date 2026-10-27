@@ -3,325 +3,226 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#0a1c24" />
-  <meta name="description" content="Captain Issa Tours — private boat experiences to Prison Island and Nakupenda Beach in Zanzibar." />
-  <title>Captain Issa Tours | Prison Island & Nakupenda Beach</title>
+  <meta name="theme-color" content="#061018" />
+  <meta name="description" content="Captain Issa Tours — private boat trips to Prison Island and Nakupenda Beach, Zanzibar." />
+  <title>Captain Issa Tours</title>
   <link rel="icon" href="assets/logo.jpg" type="image/jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="Captain Issa Tours home">
-      <img src="assets/logo.jpg" alt="" class="brand__mark" width="48" height="48" />
-      <span class="brand__text">
-        <span class="brand__name">Captain Issa</span>
-        <span class="brand__tag">Tours · Zanzibar</span>
-      </span>
+    <a class="brand" href="#top">
+      <img src="assets/logo.jpg" alt="" class="brand__mark" width="40" height="40" />
+      <span class="brand__name">Captain Issa</span>
     </a>
-    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
       <span></span><span></span>
     </button>
-    <nav class="site-nav" id="site-nav" aria-label="Primary">
-      <a href="#tours">Tours</a>
-      <a href="#experience">Experience</a>
-      <a href="#about">About</a>
-      <a href="https://wa.me/255774726129?text=Habari%20Captain%20Issa%20—%20I'd%20like%20to%20book%20a%20safari" class="nav-cta" target="_blank" rel="noopener noreferrer">Book WhatsApp</a>
+    <nav class="site-nav" id="site-nav">
+      <a href="#packages">Packages</a>
+      <a href="#book">Book</a>
+      <a href="https://wa.me/255774726129" class="nav-cta" target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero" aria-label="Welcome">
+    <section class="hero">
       <img class="hero__poster" src="assets/hero-poster.jpg" alt="" />
-      <video
-        class="hero__video"
-        data-hero-video
-        autoplay
-        muted
-        loop
-        playsinline
-        webkit-playsinline
-        preload="auto"
-        poster="assets/hero-poster.jpg"
-        aria-label="Zanzibar coast"
-      ></video>
+      <video class="hero__video" data-hero-video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/hero-poster.jpg"></video>
       <div class="hero__veil"></div>
       <div class="hero__content">
-        <p class="hero__karibu reveal">Karibu Zanzibar</p>
-        <h1 class="reveal reveal-delay-1">
-          <span class="hero__brand">Captain Issa Tours</span>
-        </h1>
-        <p class="hero__lede reveal reveal-delay-2">Private boat experiences to Prison Island and Nakupenda — calm water, giant tortoises, and a sandbank that feels entirely your own.</p>
-        <div class="hero__actions reveal reveal-delay-3">
-          <a
-            class="btn btn--whatsapp"
-            href="https://wa.me/255774726129?text=Habari%20Captain%20Issa%20—%20I'd%20like%20to%20book%20a%20safari"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Book with WhatsApp</a>
-          <a class="btn btn--ghost" href="#tours">View tours</a>
-        </div>
-      </div>
-      <a class="hero__scroll" href="#tours" aria-label="Scroll to tours">
-        <span>Explore</span>
-      </a>
-    </section>
-
-    <section class="tours" id="tours">
-      <div class="section-head">
-        <p class="eyebrow">Signature experiences</p>
-        <h2>Two islands. One refined day on the water.</h2>
-      </div>
-
-      <article class="tour tour--prison reveal">
-        <div class="tour__visual">
-          <img src="assets/prison-island.jpg" alt="Prison Island, Zanzibar" loading="lazy" width="1200" height="800" />
-        </div>
-        <div class="tour__body">
-          <p class="tour__label">Half day · ~4 hours</p>
-          <h3>Prison Island</h3>
-          <p>Sail to Changuu Island for the old prison ruins, coral paths, and Aldabra giant tortoises that have watched the Indian Ocean for generations. Snorkel the reef before returning to Stone Town.</p>
-          <ul class="tour__list">
-            <li>Boat transfer with Captain Issa</li>
-            <li>Tortoise sanctuary visit</li>
-            <li>Snorkeling stop (gear available)</li>
-            <li>Soft drinks on board</li>
-          </ul>
-          <div class="tour__meta">
-            <span class="price">Boat from <strong>TSh 60,000</strong> / trip</span>
-            <a class="btn btn--whatsapp btn--sm" href="#book" data-prefill-attraction="prison-island">Build quote</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="tour tour--nakupenda reveal">
-        <div class="tour__visual">
-          <img src="assets/nakupenda-beach.jpg" alt="Snorkeling at Nakupenda sandbank" loading="lazy" width="1024" height="768" />
-        </div>
-        <div class="tour__body">
-          <p class="tour__label">Half day · ~5 hours</p>
-          <h3>Nakupenda Beach</h3>
-          <p>“Nakupenda” means <em>I love you</em> — and the sandbank earns it. Wade through glass-clear water, swim, snorkel, and feast on a fresh seafood barbecue right on the white sand.</p>
-          <ul class="tour__list">
-            <li>Private dhow or boat to the sandbank</li>
-            <li>Swimming & snorkeling time</li>
-            <li>Fresh seafood BBQ lunch</li>
-            <li>Tropical fruit & drinks</li>
-          </ul>
-          <div class="tour__meta">
-            <span class="price">Boat from <strong>TSh 60,000</strong> / trip</span>
-            <a class="btn btn--whatsapp btn--sm" href="#book" data-prefill-attraction="marine-conservation">Build quote</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="combo reveal">
-        <div class="combo__copy">
-          <p class="eyebrow">Best value</p>
-          <h3>Prison Island + Nakupenda</h3>
-          <p>See the tortoises in the morning, then drift to Nakupenda for lunch and swimming — a full island day without rushing.</p>
-          <p class="price">Custom quote · boat + selected tickets &amp; meals</p>
-          <a class="btn btn--whatsapp" href="#book" data-prefill-attraction="prison-island,marine-conservation">Build combined quote</a>
-        </div>
-        <div class="combo__visual" aria-hidden="true">
-          <img src="assets/nakupenda-island.webp" alt="" loading="lazy" />
-        </div>
-      </article>
-    </section>
-
-    <section class="experience" id="experience">
-      <div class="experience__bg" aria-hidden="true">
-        <img src="assets/dhow.webp" alt="" />
-      </div>
-      <div class="experience__panel reveal">
-        <p class="eyebrow">The experience</p>
-        <h2>Guided by a captain who knows these waters.</h2>
-        <p>Intimate groups, carefully paced sailing, and the quiet confidence of local expertise. Hotel pick-up from Stone Town arranged on request.</p>
-        <dl class="facts">
-          <div>
-            <dt>Departure</dt>
-            <dd>Stone Town harbour</dd>
-          </div>
-          <div>
-            <dt>Group size</dt>
-            <dd>Private or shared</dd>
-          </div>
-          <div>
-            <dt>Best time</dt>
-            <dd>Morning tide</dd>
-          </div>
-        </dl>
-        <a
-          class="btn btn--whatsapp"
-          style="margin-top: 1.5rem; align-self: flex-start;"
-          href="https://wa.me/255774726129?text=Habari%20Captain%20Issa%20—%20I'd%20like%20to%20book%20a%20safari"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Book with WhatsApp</a>
+        <p class="hero__eyebrow">Zanzibar · Private boat</p>
+        <h1>Captain Issa Tours</h1>
+        <p class="hero__lede">Prison Island &amp; Nakupenda.</p>
+        <a class="btn btn--light" href="#book">Book now</a>
       </div>
     </section>
 
-    <section class="about" id="about">
-      <div class="about__grid">
-        <div class="about__copy reveal">
-          <p class="eyebrow">Meet your captain</p>
-          <h2>Captain Issa</h2>
-          <p>Born and raised on the Zanzibar coast, Captain Issa reads tides, reefs, and weather with the ease of someone who grew up on these waters — so your day feels effortless.</p>
-          <p>From quiet couple escapes to family days on the sandbank, every route is shaped around you.</p>
-          <p class="about__phone"><a href="tel:+255774726129">0774 726 129</a></p>
-        </div>
-        <figure class="about__portrait reveal">
-          <img src="assets/sandbank.webp" alt="Clear sandbank waters near Prison Island" />
-          <figcaption>Trusted local boat tours · Stone Town, Zanzibar</figcaption>
-        </figure>
+    <section class="packages" id="packages">
+      <div class="section-bar">
+        <h2>Packages</h2>
+        <p>Tap View more for prices &amp; inclusions.</p>
       </div>
+
+      <div class="pkg-grid">
+        <article class="pkg">
+          <img src="assets/prison-island.jpg" alt="Prison Island" loading="lazy" />
+          <div class="pkg__body">
+            <h3>Prison Island</h3>
+            <p class="pkg__price" data-pkg-price="prison">Entrance $12 <span>· foreign</span></p>
+            <button type="button" class="link-more" data-accordion="prison" aria-expanded="false">View more</button>
+            <div class="pkg__more" id="acc-prison" hidden>
+              <ul>
+                <li>Boat round trip — priced in quote (up to 7 guests, 2 hrs)</li>
+                <li>Tortoises + ruins</li>
+                <li>Snorkel stop</li>
+                <li>Local ticket — set in admin (TSh)</li>
+              </ul>
+              <a class="btn btn--dark btn--sm" href="#book" data-prefill-attraction="prison-island">Select</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="pkg">
+          <img src="assets/nakupenda-beach.jpg" alt="Nakupenda Beach" loading="lazy" />
+          <div class="pkg__body">
+            <h3>Nakupenda</h3>
+            <p class="pkg__price" data-pkg-price="marine">Marine park $10 <span>· foreign</span></p>
+            <button type="button" class="link-more" data-accordion="nakupenda" aria-expanded="false">View more</button>
+            <div class="pkg__more" id="acc-nakupenda" hidden>
+              <ul>
+                <li>Sandbank swim &amp; snorkel</li>
+                <li>Boat round trip — in quote</li>
+                <li>Optional seafood or chicken meal</li>
+                <li>Local beach ticket — set in admin (TSh)</li>
+              </ul>
+              <a class="btn btn--dark btn--sm" href="#book" data-prefill-attraction="marine-conservation">Select</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="pkg pkg--wide">
+          <img src="assets/nakupenda-island.webp" alt="Combined islands" loading="lazy" />
+          <div class="pkg__body">
+            <h3>Both islands</h3>
+            <p class="pkg__price">$12 + $10 tickets <span>· plus boat</span></p>
+            <button type="button" class="link-more" data-accordion="combo" aria-expanded="false">View more</button>
+            <div class="pkg__more" id="acc-combo" hidden>
+              <ul>
+                <li>Prison Island + Marine / Nakupenda</li>
+                <li>One boat · max 7 guests</li>
+                <li>Add meals in booking</li>
+              </ul>
+              <a class="btn btn--dark btn--sm" href="#book" data-prefill-attraction="prison-island,marine-conservation">Select</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <details class="faq">
+        <summary>What’s included?</summary>
+        <p>Boat fare for the group (max 7). Tickets and meals are optional extras you choose in booking.</p>
+      </details>
+      <details class="faq">
+        <summary>How is the price calculated?</summary>
+        <p>Boat (USD via admin rate) + selected tickets ($12 / $10 foreign) + optional meals. Extra hours only if admin sets a rate.</p>
+      </details>
+      <details class="faq">
+        <summary>Tanzanian visitors?</summary>
+        <p>Local ticket rates apply. Valid ID required. Set rates in Pricing admin.</p>
+      </details>
     </section>
 
     <section class="book" id="book">
-      <div class="book__intro reveal">
-        <p class="eyebrow">Reservations</p>
-        <h2>Reserve on WhatsApp</h2>
-        <p>Share your preferred date and experience with <strong>0774 726 129</strong>. Confirmation is usually within a few hours.</p>
-        <a
-          class="btn btn--whatsapp"
-          href="https://wa.me/255774726129?text=Habari%20Captain%20Issa%20—%20I'd%20like%20to%20book%20a%20safari"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Chat on WhatsApp · 0774 726 129</a>
+      <div class="book-shell">
+        <header class="book-head">
+          <h2>Book</h2>
+          <p>0774 726 129</p>
+        </header>
+
+        <form id="booking-form" class="book-form" novalidate>
+          <div class="row">
+            <label class="field">
+              <span>Date</span>
+              <input type="date" name="date" id="date" required />
+            </label>
+            <label class="field">
+              <span>Hours</span>
+              <select name="durationHours" id="durationHours" required></select>
+            </label>
+          </div>
+
+          <div class="row">
+            <label class="field">
+              <span>Guests (max 7)</span>
+              <input type="number" name="guests" id="guests" min="1" max="7" value="2" required />
+            </label>
+            <label class="field">
+              <span>Visitors</span>
+              <select name="nationalityMode" id="nationalityMode">
+                <option value="foreign">Foreign</option>
+                <option value="local">Tanzanian</option>
+                <option value="mixed">Mixed</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="row is-hidden" id="mixed-guests-row" hidden>
+            <label class="field">
+              <span>Foreign</span>
+              <input type="number" name="foreignGuests" id="foreignGuests" min="0" max="7" value="1" />
+            </label>
+            <label class="field">
+              <span>Tanzanian</span>
+              <input type="number" name="localGuests" id="localGuests" min="0" max="7" value="1" />
+            </label>
+          </div>
+          <p class="note is-hidden" id="local-id-note" hidden>Tanzanian guests: bring valid ID.</p>
+
+          <div class="chips" role="group" aria-label="Tickets">
+            <label class="chip"><input type="checkbox" name="attraction" value="prison-island" id="attr-prison" /> Prison $12</label>
+            <label class="chip"><input type="checkbox" name="attraction" value="marine-conservation" id="attr-marine" /> Marine $10</label>
+          </div>
+
+          <label class="field">
+            <span>Meal</span>
+            <select name="mealId" id="mealId"></select>
+          </label>
+
+          <div class="quote" id="quote-box" aria-live="polite">
+            <div class="quote__top">
+              <strong>Total</strong>
+              <button type="button" class="link-more" data-accordion="quote" aria-expanded="false">View more</button>
+            </div>
+            <p class="quote__grand" id="quote-grand">—</p>
+            <div class="pkg__more" id="acc-quote" hidden>
+              <ul class="quote-lines" id="quote-lines"></ul>
+              <div class="quote-totals" id="quote-totals"></div>
+              <p class="quote-warnings" id="quote-warnings"></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <label class="field">
+              <span>Name</span>
+              <input type="text" name="name" id="name" autocomplete="name" required />
+            </label>
+            <label class="field">
+              <span>WhatsApp</span>
+              <input type="tel" name="phone" id="phone" autocomplete="tel" placeholder="+255…" required />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Note <i>(optional)</i></span>
+            <input type="text" name="notes" id="notes" placeholder="Hotel / pickup" />
+          </label>
+          <input type="hidden" name="email" id="email" value="" />
+
+          <button type="submit" class="btn btn--wa btn--block">Send on WhatsApp</button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
       </div>
-
-      <form class="booking-form reveal" id="booking-form" novalidate>
-        <p class="form-lead">Build a live quote — boat, tickets and meals recalculate instantly. Then send via WhatsApp.</p>
-
-        <div class="quote-legend" aria-hidden="true">
-          <span class="quote-pill quote-pill--included">Included</span>
-          <span class="quote-pill quote-pill--optional">Optional extras</span>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label for="date">Preferred date</label>
-            <input type="date" id="date" name="date" required />
-          </div>
-          <div class="field">
-            <label for="durationHours">Tour duration</label>
-            <select id="durationHours" name="durationHours" required>
-              <option value="2">2 hours (standard)</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label for="guests">Guests <span class="optional">(max 7)</span></label>
-            <input type="number" id="guests" name="guests" min="1" max="7" value="2" required />
-          </div>
-          <div class="field">
-            <label for="nationalityMode">Visitor mix</label>
-            <select id="nationalityMode" name="nationalityMode">
-              <option value="foreign">All foreign visitors</option>
-              <option value="local">All Tanzanian visitors</option>
-              <option value="mixed">Mixed nationalities</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="field-row is-hidden" id="mixed-guests-row" hidden>
-          <div class="field">
-            <label for="foreignGuests">Foreign visitors</label>
-            <input type="number" id="foreignGuests" name="foreignGuests" min="0" max="7" value="1" />
-          </div>
-          <div class="field">
-            <label for="localGuests">Tanzanian visitors</label>
-            <input type="number" id="localGuests" name="localGuests" min="0" max="7" value="1" />
-          </div>
-        </div>
-        <p class="field-note is-hidden" id="local-id-note" hidden>Tanzanian visitors must present valid identification where applicable.</p>
-
-        <fieldset class="booking-fieldset">
-          <legend>Entrance tickets <span class="optional">(optional · charged only if selected)</span></legend>
-          <label class="check">
-            <input type="checkbox" name="attraction" value="prison-island" id="attr-prison" />
-            <span>Prison Island / tortoise conservation <em>· $12 foreign · local rate configurable</em></span>
-          </label>
-          <label class="check">
-            <input type="checkbox" name="attraction" value="marine-conservation" id="attr-marine" />
-            <span>Marine Conservation Area <em>· $10 foreign · local rate configurable</em></span>
-          </label>
-        </fieldset>
-
-        <div class="field">
-          <label for="mealId">Meals <span class="optional">(optional)</span></label>
-          <select id="mealId" name="mealId">
-            <option value="">No meal package</option>
-          </select>
-        </div>
-
-        <div class="quote-box" id="quote-box" aria-live="polite">
-          <div class="quote-box__head">
-            <h3>Price breakdown</h3>
-            <p class="quote-box__hint">Updates as you change options</p>
-          </div>
-          <ul class="quote-lines" id="quote-lines"></ul>
-          <div class="quote-totals" id="quote-totals"></div>
-          <p class="quote-warnings" id="quote-warnings"></p>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label for="name">Full name</label>
-            <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required />
-          </div>
-          <div class="field">
-            <label for="phone">Your WhatsApp / phone</label>
-            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+255 …" required />
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="email">Email <span class="optional">(optional)</span></label>
-          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@email.com" />
-        </div>
-
-        <div class="field">
-          <label for="notes">Notes <span class="optional">(hotel, pick-up, diet)</span></label>
-          <textarea id="notes" name="notes" rows="3" placeholder="Hotel name, special requests…"></textarea>
-        </div>
-
-        <button type="submit" class="btn btn--whatsapp btn--block">Send quote via WhatsApp</button>
-        <p class="form-hint">Opens WhatsApp to 0774 726 129 with your itemized quote.</p>
-        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-      </form>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer__brand">
-      <img src="assets/logo.jpg" alt="" width="40" height="40" />
-      <div>
-        <strong>Captain Issa Tours</strong>
-        <span>Stone Town · Zanzibar · Tanzania</span>
-      </div>
+    <div>
+      <strong>Captain Issa Tours</strong>
+      <span>Stone Town · Zanzibar</span>
     </div>
-    <div class="footer__contact">
-      <a href="https://wa.me/255774726129" id="footer-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp 0774 726 129</a>
-      <a href="tel:+255774726129">Call</a>
-      <a href="#book">Book</a>
-      <a href="admin.html">Pricing admin</a>
+    <div class="footer__links">
+      <a href="https://wa.me/255774726129" id="footer-whatsapp" target="_blank" rel="noopener noreferrer">0774 726 129</a>
+      <a href="admin.html">Admin</a>
     </div>
-    <p class="footer__copy">© <span id="year"></span> Captain Issa Tours. All rights reserved.</p>
+    <p>© <span id="year"></span></p>
   </footer>
 
-  <a
-    class="wa-float"
-    href="https://wa.me/255774726129?text=Habari%20Captain%20Issa%20—%20I'd%20like%20to%20book%20a%20safari"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Book with WhatsApp"
-  >
-    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M16.01 3C9.39 3 4 8.38 4 15c0 2.11.55 4.09 1.52 5.82L4 29l8.37-1.48A11.93 11.93 0 0 0 16.01 27C22.63 27 28 21.62 28 15S22.63 3 16.01 3zm6.9 16.82c-.29.82-1.69 1.5-2.36 1.59-.6.08-1.37.12-2.21-.14-.51-.15-1.16-.34-2-.66-3.52-1.35-5.81-4.49-5.99-4.7-.18-.21-1.45-1.93-1.45-3.68s.92-2.61 1.24-2.97c.33-.36.71-.45.95-.45h.68c.22 0 .51-.08.8.61.29.71.99 2.44 1.08 2.62.09.18.15.39.03.62-.12.24-.18.39-.36.6-.18.21-.38.47-.54.63-.18.18-.36.37-.15.72.21.36.93 1.53 2 2.48 1.37 1.21 2.53 1.59 2.89 1.77.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.8-.18.33.12 2.07.98 2.42 1.15.36.18.6.27.69.42.09.15.09.87-.2 1.69z"/></svg>
+  <a class="wa-float" href="https://wa.me/255774726129" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M16.01 3C9.39 3 4 8.38 4 15c0 2.11.55 4.09 1.52 5.82L4 29l8.37-1.48A11.93 11.93 0 0 0 16.01 27C22.63 27 28 21.62 28 15S22.63 3 16.01 3zm6.9 16.82c-.29.82-1.69 1.5-2.36 1.59-.6.08-1.37.12-2.21-.14-.51-.15-1.16-.34-2-.66-3.52-1.35-5.81-4.49-5.99-4.7-.18-.21-1.45-1.93-1.45-3.68s.92-2.61 1.24-2.97c.33-.36.71-.45.95-.45h.68c.22 0 .51-.08.8.61.29.71.99 2.44 1.08 2.62.09.18.15.39.03.62-.12.24-.18.39-.36.6-.18.21-.38.47-.54.63-.18.18-.36.37-.15.72.21.36.93 1.53 2 2.48 1.37 1.21 2.53 1.59 2.89 1.77.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.8-.18.33.12 2.07.98 2.42 1.15.36.18.6.27.69.42.09.15.09.87-.2 1.69z"/></svg>
   </a>
 
   <script src="js/pricing-config.js"></script>

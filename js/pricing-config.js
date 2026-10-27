@@ -15,12 +15,18 @@
   const DEFAULT_CONFIG = Object.freeze({
     version: 1,
 
+    /** Primary currency for customer-facing totals. */
+    displayCurrency: "USD",
+
     boat: Object.freeze({
       roundTripTsh: 60000,
+      /** Optional admin USD price for boat. Prefer this for display when set. */
+      roundTripUsd: null,
       maxGuests: 7,
       includedHours: 2,
       /** null until admin configures — never invent a rate in code. */
       extraHourRateTsh: null,
+      extraHourRateUsd: null,
       durationOptionsHours: Object.freeze([2, 3, 4, 5, 6]),
     }),
 
@@ -49,6 +55,7 @@
           label: "Seafood package",
           description: "Fish, prawns, squid, chips and drinks",
           priceTsh: 70000,
+          priceUsd: null,
           serves: 2,
           enabled: true,
         }),
@@ -57,13 +64,17 @@
           label: "Chicken and rice package",
           description: "Chicken and rice for the table",
           priceTsh: 70000,
+          priceUsd: null,
           serves: 2,
           enabled: true,
         }),
       ]),
     }),
 
-    /** null = do not convert USD lines to TSh (never hardcode a permanent rate). */
+    /**
+     * usdToTsh: admin-configured. Used to show TSh lines as USD (and reverse).
+     * Never invent a permanent hardcoded rate in calculator UI.
+     */
     exchange: Object.freeze({
       usdToTsh: null,
       label: "Admin-configured USD to TSh rate",

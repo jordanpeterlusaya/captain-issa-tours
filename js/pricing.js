@@ -21,15 +21,89 @@
     return { amount: Number(amount) || 0, currency };
   }
 
+  /** Prefer explicit USD; else TSh. qty multiplies the chosen unit. */
+  function pricedAmount(usdUnit, tshUnit, qty) {
+    const q = Math.max(0, toInt(qty, 1));
+    if (usdUnit != null && usdUnit !== "" && Number.isFinite(Number(usdUnit))) {
+      const unit = Number(usdUnit);
+      return { unit: money(unit, "USD"), amount: money(unit * q, "USD") };
+    }
+    if (tshUnit != null && tshUnit !== "" && Number.isFinite(Number(tshUnit))) {
+      const unit = Number(tshUnit);
+      return { unit: money(unit, "TSH"), amount: money(unit * q, "TSH") };
+    }
+    return { unit: null, amount: null, pending: true };
+  }
+
   function formatMoney(amount, currency) {
     const n = Number(amount) || 0;
     if (currency === "USD") {
-      return `$ ${n.toLocaleString("en-US", {
+      return `$${n.toLocaleString("en-US", {
         minimumFractionDigits: Number.isInteger(n) ? 0 : 2,
         maximumFractionDigits: 2,
       })}`;
     }
     return `TSh ${Math.round(n).toLocaleString("en-US")}`;
+  }
+
+  /** Convert a money object to USD for display when rate is configured. */
+  function toDisplayUsd(amountObj, usdToTsh) {
+    if (!amountObj) return null;
+    if (amountObj.currency === "USD") return amountObj.amount;
+    const rate = Number(usdToTsh);
+    if (!Number.isFinite(rate) || rate <= 0) return null;
+    return amountObj.amount / rate;
+  }
+
+  function displayGrandTotal(totals, config) {
+    const preferUsd = (config && config.displayCurrency) === "USD";
+    const rate = totals.exchangeRateUsdToTsh;
+
+    if (preferUsd) {
+      if (rate != null) {
+        const usdFromTsh = totals.tsh / rate;
+        const totalUsd = totals.usd + usdFromTsh;
+        return {
+          label: formatMoney(totalUsd, "USD"),
+          pending: totals.hasPending,
+          secondary:
+            totals.tsh > 0
+              ? `incl. ${formatMoney(totals.tsh, "TSH")} converted @ ${rate}`
+              : null,
+        };
+      }
+      if (totals.tsh > 0 && totals.usd >= 0) {
+        return {
+          label:
+            totals.usd > 0
+              ? `${formatMoney(totals.usd, "USD")} + ${formatMoney(totals.tsh, "TSH")}`
+              : formatMoney(totals.tsh, "TSH"),
+          pending: true,
+          secondary: "Set USD rate or USD prices in admin for a single $ total",
+        };
+      }
+      return {
+        label: formatMoney(totals.usd, "USD"),
+        pending: totals.hasPending,
+        secondary: null,
+      };
+    }
+
+    if (totals.grandTotalTsh != null) {
+      return {
+        label: formatMoney(totals.grandTotalTsh, "TSH"),
+        pending: totals.hasPending,
+        secondary: formatMoney(totals.usd, "USD"),
+      };
+    }
+    return {
+      label:
+        totals.usd > 0
+          ? `${formatMoney(totals.tsh, "TSH")} + ${formatMoney(totals.usd, "USD")}`
+          : formatMoney(totals.tsh, "TSH"),
+      pending: totals.hasPending,
+      secondary: null,
+    };
   }
 
   function ticketDefs(config) {
@@ -128,14 +202,17 @@
       label: "Boat fare (round trip)",
       detail: `Up to ${maxGuests} guests · ${includedHours} hours included`,
       quantity: 1,
-      unit: money(boat.roundTripTsh, "TSH"),
-      amount: money(boat.roundTripTsh, "TSH"),
+      ...pricedAmount(boat.roundTripUsd, boat.roundTripTsh, 1),
     });
 
     const extraHours = Math.max(0, durationHours - includedHours);
     if (extraHours > 0) {
-      const rate = boat.extraHourRateTsh;
-      if (rate == null || rate === "" || !Number.isFinite(Number(rate))) {
+      const rateUsd = boat.extraHourRateUsd;
+      const rateTsh = boat.extraHourRateTsh;
+      const hasRate =
+        (rateUsd != null && rateUsd !== "" && Number.isFinite(Number(rateUsd))) ||
+        (rateTsh != null && rateTsh !== "" && Number.isFinite(Number(rateTsh)));
+      if (!hasRate) {
         warnings.push(config.copy?.extraHourUnsetNote || "Extra-hour rate not configured by admin yet");
         lines.push({
           id: "boat-extra-hours",
@@ -148,15 +225,16 @@
           pending: true,
         });
       } else {
-        const rateTsh = Number(rate);
+        const priced = pricedAmount(rateUsd, rateTsh, extraHours);
         lines.push({
           id: "boat-extra-hours",
           category: "optional",
           label: "Additional hours",
-          detail: `${extraHours} × ${formatMoney(rateTsh, "TSH")}`,
+          detail: `${extraHours} × ${
+            priced.unit ? formatMoney(priced.unit.amount, priced.unit.currency) : "—"
+          }`,
           quantity: extraHours,
-          unit: money(rateTsh, "TSH"),
-          amount: money(extraHours * rateTsh, "TSH"),
+          ...priced,
         });
       }
     }
@@ -219,15 +297,14 @@
       } else {
         const serves = toInt(meal.serves, config.meals?.defaultServes || 2);
         const packs = packageCount(guests, serves);
-        const price = Number(meal.priceTsh) || 0;
+        const priced = pricedAmount(meal.priceUsd, meal.priceTsh, packs);
         lines.push({
           id: `meal-${meal.id}`,
           category: "optional",
           label: meal.label,
           detail: `${packs} package(s) × serves ${serves} · ${meal.description || ""}`.trim(),
           quantity: packs,
-          unit: money(price, "TSH"),
-          amount: money(packs * price, "TSH"),
+          ...priced,
         });
       }
     }
@@ -350,5 +427,8 @@
     ticketDefs,
     mealOption,
     quoteToPlainText,
+    pricedAmount,
+    toDisplayUsd,
+    displayGrandTotal,
   };
 });
