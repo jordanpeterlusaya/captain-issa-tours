@@ -22,17 +22,25 @@
   <main class="admin">
     <a class="back" href="index.html">← Site</a>
     <h1>Pricing</h1>
-    <p class="lede">Set USD prices / exchange rate here. Empty extra-hour or rate = not configured (site will not invent).</p>
+    <p class="lede">Boat packages are without food. Meals are separate. Leave extra-hour empty if not set.</p>
     <form class="admin-form" id="admin-form">
       <fieldset>
-        <legend>Boat</legend>
+        <legend>Tours (no food)</legend>
         <div class="row">
-          <label class="field"><span>Round trip TSh</span><input name="roundTripTsh" type="number" min="0" required /></label>
-          <label class="field"><span>Round trip USD</span><input name="roundTripUsd" type="number" min="0" step="0.01" placeholder="Optional" /></label>
+          <label class="field"><span>Prison TSh</span><input name="prisonTsh" type="number" min="0" required /></label>
+          <label class="field"><span>Prison USD</span><input name="prisonUsd" type="number" min="0" step="0.01" required /></label>
+        </div>
+        <div class="row">
+          <label class="field"><span>Nakupenda TSh</span><input name="nakupendaTsh" type="number" min="0" required /></label>
+          <label class="field"><span>Nakupenda USD</span><input name="nakupendaUsd" type="number" min="0" step="0.01" required /></label>
+        </div>
+        <div class="row">
+          <label class="field"><span>Both islands TSh</span><input name="comboTsh" type="number" min="0" required /></label>
+          <label class="field"><span>Both islands USD</span><input name="comboUsd" type="number" min="0" step="0.01" required /></label>
         </div>
         <div class="row">
           <label class="field"><span>Max guests</span><input name="maxGuests" type="number" min="1" max="20" required /></label>
-          <label class="field"><span>Included hours</span><input name="includedHours" type="number" min="1" required /></label>
+          <label class="field"><span>Standard hours</span><input name="includedHours" type="number" min="1" required /></label>
         </div>
         <div class="row">
           <label class="field"><span>Extra hour TSh</span><input name="extraHourRateTsh" type="number" min="0" placeholder="Empty = unset" /></label>
@@ -40,18 +48,18 @@
         </div>
       </fieldset>
       <fieldset>
-        <legend>Tickets (USD foreign)</legend>
+        <legend>Entrance tickets</legend>
         <div class="row">
-          <label class="field"><span>Prison $</span><input name="prisonForeignUsd" type="number" min="0" step="0.01" required /></label>
+          <label class="field"><span>Prison foreign $</span><input name="prisonForeignUsd" type="number" min="0" step="0.01" required /></label>
           <label class="field"><span>Prison local TSh</span><input name="prisonLocalTsh" type="number" min="0" required /></label>
         </div>
         <div class="row">
-          <label class="field"><span>Marine $</span><input name="marineForeignUsd" type="number" min="0" step="0.01" required /></label>
+          <label class="field"><span>Marine foreign $</span><input name="marineForeignUsd" type="number" min="0" step="0.01" required /></label>
           <label class="field"><span>Marine local TSh</span><input name="marineLocalTsh" type="number" min="0" required /></label>
         </div>
       </fieldset>
       <fieldset>
-        <legend>Meals</legend>
+        <legend>Meals (extra)</legend>
         <div class="row">
           <label class="field"><span>Seafood TSh</span><input name="seafoodPrice" type="number" min="0" required /></label>
           <label class="field"><span>Seafood USD</span><input name="seafoodUsd" type="number" min="0" step="0.01" placeholder="Optional" /></label>
@@ -86,8 +94,12 @@
 
       function fill() {
         const c = C.getConfig();
-        form.roundTripTsh.value = c.boat.roundTripTsh;
-        form.roundTripUsd.value = c.boat.roundTripUsd ?? "";
+        form.prisonTsh.value = c.tours.prison.priceTsh;
+        form.prisonUsd.value = c.tours.prison.priceUsd;
+        form.nakupendaTsh.value = c.tours.nakupenda.priceTsh;
+        form.nakupendaUsd.value = c.tours.nakupenda.priceUsd;
+        form.comboTsh.value = c.tours.combo.priceTsh;
+        form.comboUsd.value = c.tours.combo.priceUsd;
         form.maxGuests.value = c.boat.maxGuests;
         form.includedHours.value = c.boat.includedHours;
         form.extraHourRateTsh.value = c.boat.extraHourRateTsh ?? "";
@@ -112,12 +124,36 @@
         C.saveOverrides({
           displayCurrency: "USD",
           boat: {
-            roundTripTsh: Number(form.roundTripTsh.value),
-            roundTripUsd: n(form.roundTripUsd.value),
             maxGuests: Number(form.maxGuests.value),
             includedHours: Number(form.includedHours.value),
             extraHourRateTsh: n(form.extraHourRateTsh.value),
             extraHourRateUsd: n(form.extraHourRateUsd.value),
+          },
+          tours: {
+            prison: {
+              id: "prison",
+              label: "Prison Island",
+              hours: Number(form.includedHours.value),
+              priceTsh: Number(form.prisonTsh.value),
+              priceUsd: Number(form.prisonUsd.value),
+              includesMeal: false,
+            },
+            nakupenda: {
+              id: "nakupenda",
+              label: "Nakupenda Beach",
+              hours: Number(form.includedHours.value),
+              priceTsh: Number(form.nakupendaTsh.value),
+              priceUsd: Number(form.nakupendaUsd.value),
+              includesMeal: false,
+            },
+            combo: {
+              id: "combo",
+              label: "Prison Island + Nakupenda",
+              hours: Number(form.includedHours.value),
+              priceTsh: Number(form.comboTsh.value),
+              priceUsd: Number(form.comboUsd.value),
+              includesMeal: false,
+            },
           },
           tickets: {
             prisonIsland: {

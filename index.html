@@ -23,6 +23,7 @@
     </button>
     <nav class="site-nav" id="site-nav">
       <a href="#packages">Packages</a>
+      <a href="#captain">Captain</a>
       <a href="#book">Book</a>
       <a href="https://wa.me/255774726129" class="nav-cta" target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </nav>
@@ -34,9 +35,9 @@
       <video class="hero__video" data-hero-video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/hero-poster.jpg"></video>
       <div class="hero__veil"></div>
       <div class="hero__content">
-        <p class="hero__eyebrow">Zanzibar · Private boat</p>
+        <p class="hero__eyebrow">Stone Town · Zanzibar</p>
         <h1>Captain Issa Tours</h1>
-        <p class="hero__lede">Prison Island &amp; Nakupenda.</p>
+        <p class="hero__lede">With Captain Salum Idy.</p>
         <a class="btn btn--light" href="#book">Book now</a>
       </div>
     </section>
@@ -52,16 +53,15 @@
           <img src="assets/prison-island.jpg" alt="Prison Island" loading="lazy" />
           <div class="pkg__body">
             <h3>Prison Island</h3>
-            <p class="pkg__price" data-pkg-price="prison">Entrance $12 <span>· foreign</span></p>
+            <p class="pkg__price">$20 <span>· TSh 50,000 · 2 hrs · no food</span></p>
             <button type="button" class="link-more" data-accordion="prison" aria-expanded="false">View more</button>
             <div class="pkg__more" id="acc-prison" hidden>
               <ul>
-                <li>Boat round trip — priced in quote (up to 7 guests, 2 hrs)</li>
-                <li>Tortoises + ruins</li>
-                <li>Snorkel stop</li>
-                <li>Local ticket — set in admin (TSh)</li>
+                <li>Boat for up to 7 guests</li>
+                <li>Giant tortoises &amp; island history</li>
+                <li>Food is extra if you want lunch</li>
               </ul>
-              <a class="btn btn--dark btn--sm" href="#book" data-prefill-attraction="prison-island">Select</a>
+              <a class="btn btn--dark btn--sm" href="#book" data-prefill-tour="prison">Select</a>
             </div>
           </div>
         </article>
@@ -70,16 +70,15 @@
           <img src="assets/nakupenda-beach.jpg" alt="Nakupenda Beach" loading="lazy" />
           <div class="pkg__body">
             <h3>Nakupenda</h3>
-            <p class="pkg__price" data-pkg-price="marine">Marine park $10 <span>· foreign</span></p>
+            <p class="pkg__price">$20 <span>· TSh 50,000 · no food</span></p>
             <button type="button" class="link-more" data-accordion="nakupenda" aria-expanded="false">View more</button>
             <div class="pkg__more" id="acc-nakupenda" hidden>
               <ul>
-                <li>Sandbank swim &amp; snorkel</li>
-                <li>Boat round trip — in quote</li>
-                <li>Optional seafood or chicken meal</li>
-                <li>Local beach ticket — set in admin (TSh)</li>
+                <li>Sandbank swim (“I love you” beach)</li>
+                <li>Same boat price as Prison Island</li>
+                <li>Seafood lunch extra if requested</li>
               </ul>
-              <a class="btn btn--dark btn--sm" href="#book" data-prefill-attraction="marine-conservation">Select</a>
+              <a class="btn btn--dark btn--sm" href="#book" data-prefill-tour="nakupenda">Select</a>
             </div>
           </div>
         </article>
@@ -88,15 +87,15 @@
           <img src="assets/nakupenda-island.webp" alt="Combined islands" loading="lazy" />
           <div class="pkg__body">
             <h3>Both islands</h3>
-            <p class="pkg__price">$12 + $10 tickets <span>· plus boat</span></p>
+            <p class="pkg__price">$40 <span>· TSh 100,000 · photos only · no food</span></p>
             <button type="button" class="link-more" data-accordion="combo" aria-expanded="false">View more</button>
             <div class="pkg__more" id="acc-combo" hidden>
               <ul>
-                <li>Prison Island + Marine / Nakupenda</li>
-                <li>One boat · max 7 guests</li>
-                <li>Add meals in booking</li>
+                <li>Prison Island + Nakupenda in one trip</li>
+                <li>For photos, swim and sandbank time</li>
+                <li>Add a meal in booking if you want to eat</li>
               </ul>
-              <a class="btn btn--dark btn--sm" href="#book" data-prefill-attraction="prison-island,marine-conservation">Select</a>
+              <a class="btn btn--dark btn--sm" href="#book" data-prefill-tour="combo">Select</a>
             </div>
           </div>
         </article>
@@ -104,16 +103,26 @@
 
       <details class="faq">
         <summary>What’s included?</summary>
-        <p>Boat fare for the group (max 7). Tickets and meals are optional extras you choose in booking.</p>
+        <p>Boat only. No food. Tickets and meals are extras you can add when booking.</p>
       </details>
       <details class="faq">
-        <summary>How is the price calculated?</summary>
-        <p>Boat (USD via admin rate) + selected tickets ($12 / $10 foreign) + optional meals. Extra hours only if admin sets a rate.</p>
+        <summary>Want lunch?</summary>
+        <p>Food is a separate price. Choose a meal package in the booking form.</p>
       </details>
-      <details class="faq">
-        <summary>Tanzanian visitors?</summary>
-        <p>Local ticket rates apply. Valid ID required. Set rates in Pricing admin.</p>
-      </details>
+    </section>
+
+    <section class="story" id="captain">
+      <p class="story__kicker">The captain</p>
+      <h2>Salum Idy</h2>
+      <p>In the heart of Zanzibar, where turquoise waters meet centuries of history, Captain Salum Idy is a trusted ambassador of the island — Prison Island and Nakupenda Beach.</p>
+      <button type="button" class="link-more" data-accordion="story" aria-expanded="false">View more</button>
+      <div class="pkg__more story__more" id="acc-story" hidden>
+        <p>Every journey begins with a warm smile and a commitment to safety, professionalism and genuine Swahili hospitality. As his boat glides from Stone Town, guests see crystal-clear ocean views while learning the culture that makes Zanzibar captivating.</p>
+        <p>At Prison Island — once linked to quarantine and colonial history — visitors meet giant Aldabra tortoises and peaceful shores. Salum makes time for both the history and the wildlife.</p>
+        <p>Nakupenda Beach is a sandbank that appears at low tide and slips back under the sea. The name means “I love you.” Powdery white sand, warm turquoise water, swimming, snorkeling, or fresh seafood by the sea — he works so a boat ride becomes a memory.</p>
+        <p>Tourism needs people who bring places to life. Captains like Salum Idy support local livelihoods and the hospitality Zanzibar is known for.</p>
+        <p><strong>Call or WhatsApp:</strong> <a href="https://wa.me/255774726129">+255 774 726 129</a></p>
+      </div>
     </section>
 
     <section class="book" id="book">
@@ -124,6 +133,15 @@
         </header>
 
         <form id="booking-form" class="book-form" novalidate>
+          <label class="field">
+            <span>Tour</span>
+            <select name="tourType" id="tourType" required>
+              <option value="prison">Prison Island · $20 · no food</option>
+              <option value="nakupenda">Nakupenda · $20 · no food</option>
+              <option value="combo">Both islands · $40 · no food</option>
+            </select>
+          </label>
+
           <div class="row">
             <label class="field">
               <span>Date</span>
@@ -162,9 +180,9 @@
           </div>
           <p class="note is-hidden" id="local-id-note" hidden>Tanzanian guests: bring valid ID.</p>
 
-          <div class="chips" role="group" aria-label="Tickets">
-            <label class="chip"><input type="checkbox" name="attraction" value="prison-island" id="attr-prison" /> Prison $12</label>
-            <label class="chip"><input type="checkbox" name="attraction" value="marine-conservation" id="attr-marine" /> Marine $10</label>
+          <div class="chips" role="group" aria-label="Entrance tickets">
+            <label class="chip"><input type="checkbox" name="attraction" value="prison-island" id="attr-prison" /> Prison ticket $12</label>
+            <label class="chip"><input type="checkbox" name="attraction" value="marine-conservation" id="attr-marine" /> Marine ticket $10</label>
           </div>
 
           <label class="field">

@@ -88,6 +88,7 @@
 
   if (!form || !Pricing || !PricingConfig) return;
 
+  const tourSelect = form.elements.tourType;
   const guestsInput = form.elements.guests;
   const durationSelect = form.elements.durationHours;
   const nationalityMode = form.elements.nationalityMode;
@@ -153,6 +154,7 @@
   function readSelection() {
     const split = visitorSplit();
     return {
+      tourType: tourSelect ? tourSelect.value : "prison",
       guests: Number(guestsInput.value) || 0,
       durationHours: Number(durationSelect.value) || 2,
       foreignGuests: split.foreignGuests,
@@ -256,19 +258,11 @@
   form.addEventListener("input", recalculate);
   form.addEventListener("change", recalculate);
 
-  document.querySelectorAll("[data-prefill-attraction]").forEach((btn) => {
+  document.querySelectorAll("[data-prefill-tour]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const ids = (btn.getAttribute("data-prefill-attraction") || "")
-        .split(",")
-        .map((s) => s.trim())
-        .filter(Boolean);
-      form.querySelectorAll('input[name="attraction"]').forEach((box) => {
-        box.checked = ids.includes(box.value);
-      });
+      const tour = btn.getAttribute("data-prefill-tour");
+      if (tourSelect && tour) tourSelect.value = tour;
       recalculate();
-      const quoteBtn = document.querySelector('[data-accordion="quote"]');
-      const quotePanel = document.getElementById("acc-quote");
-      if (quotePanel && quotePanel.hidden && quoteBtn) quoteBtn.click();
     });
   });
 
@@ -302,13 +296,14 @@
 
     const selection = readSelection();
     const messageLines = [
-      "Habari Captain Issa — booking request:",
+      "Habari Captain Salum Idy — booking request:",
       "",
+      `Tour: ${selection.tourType}`,
       `Date: ${date}`,
       `Guests: ${selection.guests} (foreign ${selection.foreignGuests}, TZ ${selection.localGuests})`,
       `Hours: ${selection.durationHours}`,
       `Tickets: ${selection.attractions.join(", ") || "None"}`,
-      `Meal: ${selection.mealId || "None"}`,
+      `Meal: ${selection.mealId || "None (boat only)"}`,
       "",
       Pricing.quoteToPlainText(latestQuote),
       "",

@@ -123,8 +123,14 @@
     return Math.ceil(g / per);
   }
 
+  function tourDef(config, tourId) {
+    const tours = (config && config.tours) || {};
+    return tours[tourId] || null;
+  }
+
   /**
    * @param {object} input
+   * @param {string} input.tourType - prison | nakupenda | combo
    * @param {number} input.guests
    * @param {number} input.durationHours
    * @param {number} [input.foreignGuests]
@@ -136,7 +142,8 @@
   function calculateQuote(input, config) {
     const boat = config.boat || {};
     const maxGuests = toInt(boat.maxGuests, 7);
-    const includedHours = toInt(boat.includedHours, 2);
+    const tour = tourDef(config, input && input.tourType);
+    const includedHours = toInt(tour && tour.hours, boat.includedHours || 2);
     const guests = toInt(input && input.guests, 0);
     const durationHours = toInt(input && input.durationHours, includedHours);
 
@@ -145,6 +152,7 @@
     const lines = [];
     const notes = [];
 
+    if (!tour) errors.push("Select a tour: Prison Island, Nakupenda, or both.");
     if (guests < 1) errors.push("Select at least 1 guest.");
     if (guests > maxGuests) {
       errors.push(`Boat capacity is limited to ${maxGuests} guests.`);
@@ -195,14 +203,14 @@
       };
     }
 
-    // --- Boat (included service) ---
+    const boatPriced = pricedAmount(tour.priceUsd, tour.priceTsh, 1);
     lines.push({
       id: "boat-fare",
       category: "included",
-      label: "Boat fare (round trip)",
-      detail: `Up to ${maxGuests} guests · ${includedHours} hours included`,
+      label: `${tour.label} boat (no food)`,
+      detail: `Up to ${maxGuests} guests · ${includedHours} hours · photos & swim`,
       quantity: 1,
-      ...pricedAmount(boat.roundTripUsd, boat.roundTripTsh, 1),
+      ...boatPriced,
     });
 
     const extraHours = Math.max(0, durationHours - includedHours);
@@ -337,6 +345,7 @@
         includedHours,
         extraHours,
         maxGuests,
+        tourType: tour.id,
         attractions: attractions.slice(),
         mealId: mealId || null,
       },
@@ -425,6 +434,7 @@
     formatMoney,
     packageCount,
     ticketDefs,
+    tourDef,
     mealOption,
     quoteToPlainText,
     pricedAmount,

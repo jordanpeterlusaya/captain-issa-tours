@@ -19,15 +19,40 @@
     displayCurrency: "USD",
 
     boat: Object.freeze({
-      roundTripTsh: 60000,
-      /** Optional admin USD price for boat. Prefer this for display when set. */
-      roundTripUsd: null,
       maxGuests: 7,
       includedHours: 2,
-      /** null until admin configures — never invent a rate in code. */
       extraHourRateTsh: null,
       extraHourRateUsd: null,
       durationOptionsHours: Object.freeze([2, 3, 4, 5, 6]),
+    }),
+
+    /** Boat packages without food. Meals are always extra. */
+    tours: Object.freeze({
+      prison: Object.freeze({
+        id: "prison",
+        label: "Prison Island",
+        hours: 2,
+        priceTsh: 50000,
+        priceUsd: 20,
+        includesMeal: false,
+      }),
+      nakupenda: Object.freeze({
+        id: "nakupenda",
+        label: "Nakupenda Beach",
+        hours: 2,
+        priceTsh: 50000,
+        priceUsd: 20,
+        includesMeal: false,
+      }),
+      combo: Object.freeze({
+        id: "combo",
+        label: "Prison Island + Nakupenda",
+        hours: 2,
+        priceTsh: 100000,
+        /** Same 50,000 TSh = $20 pairing as the single-island tours. */
+        priceUsd: 40,
+        includesMeal: false,
+      }),
     }),
 
     tickets: Object.freeze({
@@ -87,7 +112,7 @@
     }),
   });
 
-  const STORAGE_KEY = "captainIssaPricingConfig.v1";
+  const STORAGE_KEY = "captainIssaPricingConfig.v2";
 
   function isPlainObject(value) {
     return Boolean(value) && typeof value === "object" && !Array.isArray(value);
