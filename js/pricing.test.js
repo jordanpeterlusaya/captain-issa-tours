@@ -1,5 +1,5 @@
 /**
- * Basic tests for Captain Issa tour pricing rules.
+ * Basic tests for Captain Salum tour pricing rules.
  * Run: node js/pricing.test.js
  */
 const assert = require("assert");

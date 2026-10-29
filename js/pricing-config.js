@@ -1,5 +1,5 @@
 /**
- * Admin-configurable pricing settings for Captain Issa Tours.
+ * Admin-configurable pricing settings for Captain Salum Tours.
  * Edit defaults here or override via admin page / localStorage.
  * Do not invent missing rates in UI or calculator code.
  */
@@ -7,7 +7,7 @@
   if (typeof module === "object" && module.exports) {
     module.exports = factory(global);
   } else {
-    global.CaptainIssaPricingConfig = factory(global);
+    global.CaptainSalumPricingConfig = factory(global);
   }
 })(typeof globalThis !== "undefined" ? globalThis : this, function (global) {
   "use strict";
@@ -112,7 +112,7 @@
     }),
   });
 
-  const STORAGE_KEY = "captainIssaPricingConfig.v2";
+  const STORAGE_KEY = "captainSalumPricingConfig.v1";
 
   function isPlainObject(value) {
     return Boolean(value) && typeof value === "object" && !Array.isArray(value);

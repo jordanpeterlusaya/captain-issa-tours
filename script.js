@@ -11,8 +11,8 @@
   const footerWa = document.getElementById("footer-whatsapp");
   const heroVideo = document.querySelector("[data-hero-video]");
 
-  const PricingConfig = window.CaptainIssaPricingConfig;
-  const Pricing = window.CaptainIssaPricing;
+  const PricingConfig = window.CaptainSalumPricingConfig;
+  const Pricing = window.CaptainSalumPricing;
 
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
   if (footerWa) footerWa.href = `https://wa.me/${WHATSAPP_NUMBER}`;
