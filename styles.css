@@ -628,8 +628,20 @@ h1, h2, h3 {
   font-weight: 400;
 }
 
+.footer__geo {
+  font-style: normal;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.footer__geo a {
+  border-bottom: 1px solid var(--line);
+}
+
 .footer__links {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.25rem;
 }
 

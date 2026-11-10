@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://oneheartcaptain.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oneheartcaptain.com/" />
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://oneheartcaptain.com/assets/prison-island.jpg</image:loc>
+      <image:title>Prison Island Zanzibar boat tour</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://oneheartcaptain.com/assets/nakupenda-beach.jpg</image:loc>
+      <image:title>Nakupenda Beach Zanzibar sandbank</image:title>
+    </image:image>
+  </url>
+</urlset>
