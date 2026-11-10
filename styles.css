@@ -81,9 +81,23 @@ h1, h2, h3 {
   object-fit: cover;
 }
 
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
 .brand__name {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.2rem;
+}
+
+.brand__sub {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .site-nav {
@@ -232,6 +246,102 @@ h1, h2, h3 {
   font-size: clamp(1.05rem, 2.5vw, 1.25rem);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.86);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.intro {
+  padding: clamp(2.5rem, 6vw, 4rem) var(--pad) 0;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.intro__kicker {
+  margin: 0 0 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.intro h2 {
+  font-size: clamp(1.9rem, 5vw, 2.8rem);
+  margin-bottom: 0.75rem;
+}
+
+.intro p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.geo {
+  padding: clamp(3rem, 7vw, 5rem) var(--pad);
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.geo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.geo-card {
+  padding: 1.2rem 1.25rem 1.35rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+}
+
+.geo-card h3 {
+  font-size: 1.55rem;
+  margin-bottom: 0.35rem;
+}
+
+.geo-card__meta {
+  margin: 0 0 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.geo-card p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.faq-block {
+  padding: 0 var(--pad) clamp(3rem, 7vw, 4.5rem);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.faq-block .faq:first-of-type {
+  border-top: 1px solid var(--line);
+}
+
+.book-lead {
+  margin: -0.65rem 0 1.15rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.92rem;
 }
 
 /* Packages */
@@ -685,6 +795,7 @@ h1, h2, h3 {
     min-height: 0;
     max-height: none;
   }
+  .geo-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px) {

@@ -1,14 +1,16 @@
 {
-  "name": "Captain Salum Tours",
-  "short_name": "Captain Salum",
-  "description": "Private boat tours to Prison Island and Nakupenda Beach from Stone Town, Zanzibar.",
+  "name": "One Heart Captain",
+  "short_name": "One Heart Captain",
+  "description": "Official One Heart Captain site — Captain Salum Idy private boat tours to Prison Island and Nakupenda Beach from Stone Town, Zanzibar.",
   "start_url": "https://www.oneheartcaptain.com/",
   "scope": "/",
+  "id": "/",
   "display": "standalone",
   "background_color": "#f3efe6",
   "theme_color": "#061018",
   "lang": "en",
   "dir": "ltr",
+  "categories": ["travel", "lifestyle"],
   "icons": [
     {
       "src": "/assets/opt/logo-192.jpg",
