@@ -4,5 +4,5 @@ Allow: /
 # Keep admin out of search indexes
 Disallow: /admin.html
 
-Sitemap: https://oneheartcaptain.com/sitemap.xml
-Host: https://oneheartcaptain.com
+Sitemap: https://www.oneheartcaptain.com/sitemap.xml
+Host: https://www.oneheartcaptain.com

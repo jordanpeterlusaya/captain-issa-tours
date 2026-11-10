@@ -3,18 +3,25 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://oneheartcaptain.com/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://oneheartcaptain.com/" />
+    <loc>https://www.oneheartcaptain.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.oneheartcaptain.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.oneheartcaptain.com/" />
     <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://oneheartcaptain.com/assets/prison-island.jpg</image:loc>
-      <image:title>Prison Island Zanzibar boat tour</image:title>
+      <image:loc>https://www.oneheartcaptain.com/assets/opt/prison-island-1200.jpg</image:loc>
+      <image:title>Prison Island Changuu Zanzibar boat tour</image:title>
+      <image:caption>Private boat trip from Stone Town to Prison Island with Captain Salum</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://oneheartcaptain.com/assets/nakupenda-beach.jpg</image:loc>
-      <image:title>Nakupenda Beach Zanzibar sandbank</image:title>
+      <image:loc>https://www.oneheartcaptain.com/assets/opt/nakupenda-beach-1200.jpg</image:loc>
+      <image:title>Nakupenda Beach Zanzibar sandbank tour</image:title>
+      <image:caption>Nakupenda Beach sandbank snorkeling and swim from Stone Town</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.oneheartcaptain.com/assets/opt/combo-1200.jpg</image:loc>
+      <image:title>Prison Island and Nakupenda Beach combo boat tour</image:title>
     </image:image>
   </url>
 </urlset>
